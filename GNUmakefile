@@ -1,5 +1,5 @@
 ifdef CONFIG
-	VERSION = 0.98
+	VERSION = 0.99
 	GIT_LABEL = $(shell git describe --all --long)
 
 	BUNDLE = Factor.app
@@ -140,6 +140,8 @@ default:
 help:
 	@echo "Run '$(MAKE)' with one of the following parameters:"
 	@echo ""
+	@echo "freebsd-x86-32"
+	@echo "freebsd-x86-64"
 	@echo "linux-x86-32"
 	@echo "linux-x86-64"
 	@echo "linux-ppc-32"
@@ -168,6 +170,12 @@ macosx-x86-64:
 
 macosx-x86-fat:
 	$(MAKE) $(ALL) macosx.app CONFIG=vm/Config.macosx.x86.fat
+
+freebsd-x86-32:
+	$(MAKE) $(ALL) CONFIG=vm/Config.freebsd.x86.32
+
+freebsd-x86-64:
+	$(MAKE) $(ALL) CONFIG=vm/Config.freebsd.x86.64
 
 linux-x86-32:
 	$(MAKE) $(ALL) CONFIG=vm/Config.linux.x86.32

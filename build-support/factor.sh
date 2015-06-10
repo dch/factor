@@ -99,6 +99,10 @@ set_gcc() {
                 [ -z "$CXX" ] && CXX=g++
             fi
         ;;
+        freebsd)
+            CC=clang
+            CXX=clang++
+        ;;
         *)
             [ -z "$CC" ] && CC=gcc
             [ -z "$CXX" ] && CXX=g++
@@ -198,6 +202,7 @@ find_os() {
         *CYGWIN_NT*) OS=windows;;
         *CYGWIN*) OS=windows;;
         MINGW32*) OS=windows;;
+        FreeBSD)  OS=freebsd;;
         *darwin*) OS=macosx;;
         *Darwin*) OS=macosx;;
         *linux*) OS=linux;;

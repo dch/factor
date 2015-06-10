@@ -45,6 +45,21 @@
         #error "Unsupported Linux flavor"
       #endif
     #else
+    #if defined(__freebsd__)
+      #define FACTOR_OS_STRING "freebsd"
+      #include "os-freebsd.hpp"
+
+      #if defined(FACTOR_X86)
+        #include "os-freebsd-x86.32.hpp"
+      #elif defined(FACTOR_ARM)
+        #include "os-freebsd-arm.hpp"
+      #elif defined(FACTOR_AMD64)
+        #include "os-freebsd-x86.64.hpp"
+      #else
+        #error "Unsupported FreeBSD flavor"
+      #endif
+    #else
+
       #error "Unsupported OS"
     #endif
   #endif
